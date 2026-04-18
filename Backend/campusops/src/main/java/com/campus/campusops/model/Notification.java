@@ -5,22 +5,22 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users")
+@Table(name = "notifications")
 @Data
-public class User {
+public class Notification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @Column(name = "user_id")
+    private Long userId;
 
-    @Column(unique = true)
-    private String email;
+    private String message;
+    private String type;
 
-    private String password;
-
-    private String role; // USER or ADMIN
+    @Column(name = "is_read")
+    private Boolean isRead = false;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

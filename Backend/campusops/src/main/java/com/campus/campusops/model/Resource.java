@@ -5,22 +5,19 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users")
+@Table(name = "resources")
 @Data
-public class User {
+public class Resource {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-
-    @Column(unique = true)
-    private String email;
-
-    private String password;
-
-    private String role; // USER or ADMIN
+    private String type;
+    private Integer capacity;
+    private String location;
+    private String status; // ACTIVE or OUT_OF_SERVICE
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
@@ -28,5 +25,6 @@ public class User {
     @PrePersist
     public void prePersist() {
         createdAt = LocalDateTime.now();
+        if (status == null) status = "ACTIVE";
     }
 }
