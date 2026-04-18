@@ -1,0 +1,147 @@
+.cs-topbar {
+  position: fixed;
+  top: 0;
+  left: var(--sbw);
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 60%, #0f172a 100%);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  z-index: 10;
+  transition: left .25s ease;
+}
+
+.cs-topbar-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #d6d9dd;
+  letter-spacing: 0.01em;
+}
+
+.cs-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cs-user-chip {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #4f46e5;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.cs-role-chip {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cs-top-icon-btn {
+  position: relative;
+  width: 36px; height: 36px;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cs-top-icon-btn:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+.cs-logout-btn {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #ef4444;
+}
+.cs-logout-btn:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #dc2626;
+}
+
+.cs-notif-dot {
+  position: absolute;
+  top: -4px; right: -4px;
+  background: #ef4444;
+  color: white;
+  font-size: 0.58rem;
+  font-weight: 700;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+}
+
+.cs-notif-wrapper { position: relative; }
+
+.cs-notif-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 300px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.12);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  z-index: 200;
+}
+
+.cs-notif-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.cs-notif-badge {
+  font-size: 0.7rem;
+  background: #eef2ff;
+  color: #4f46e5;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.cs-notif-list { max-height: 300px; overflow-y: auto; }
+
+.cs-notif-empty {
+  padding: 2rem;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.cs-notif-item {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f8fafc;
+  cursor: pointer;
+  transition: background 0.15s;
+  align-items: flex-start;
+}
+.cs-notif-item:hover { background: #f8fafc; }
+.cs-notif-item.unread { background: #eef2ff; }
+.cs-notif-item p { font-size: 0.82rem; color: #1e293b; line-height: 1.4; margin: 0 0 0.2rem; }
+.cs-notif-item span { font-size: 0.72rem; color: #94a3b8; }

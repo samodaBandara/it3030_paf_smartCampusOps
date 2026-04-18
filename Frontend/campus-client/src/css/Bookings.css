@@ -1,0 +1,6 @@
+.bookings-table { background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); overflow: hidden; }
+.bookings-table table { width: 100%; border-collapse: collapse; }
+.bookings-table th { background: #f8fafc; padding: 0.9rem 1rem; text-align: left; font-size: 0.85rem; color: #64748b; border-bottom: 1px solid #e2e8f0; }
+.bookings-table td { padding: 0.9rem 1rem; border-bottom: 1px solid #f1f5f9; font-size: 0.9rem; color: #1e293b; }
+.bookings-table tr:last-child td { border-bottom: none; }
+.auth-error { background: #fee2e2; color: #dc2626; padding: 0.6rem 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.9rem; }

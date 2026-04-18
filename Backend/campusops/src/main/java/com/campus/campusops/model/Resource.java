@@ -14,10 +14,12 @@ public class Resource {
     private Long id;
 
     private String name;
-    private String type;
+    private String type;       // LECTURE_HALL, LAB, MEETING_ROOM, EQUIPMENT
     private Integer capacity;
     private String location;
-    private String status; // ACTIVE or OUT_OF_SERVICE
+    private String building;
+    private String floor;
+    private String status;     // ACTIVE, OUT_OF_SERVICE
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

@@ -5,6 +5,7 @@ import com.campus.campusops.repository.UserRepository;
 import com.campus.campusops.service.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,5 +44,30 @@ public class AuthController {
                     return ResponseEntity.ok(Map.of("token", token, "role", u.getRole(), "name", u.getName()));
                 })
                 .orElse(ResponseEntity.status(401).body(Map.of("error", "Invalid credentials")));
+    }
+
+    @GetMapping("/users")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> getAllUsers() {
+        return ResponseEntity.ok(userRepository.findAll());
+    }
+
+    @PutMapping("/users/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody Map<String, String> body) {
+        return userRepository.findById(id).map(u -> {
+            if (body.get("name") != null)
+                u.setName(body.get("name"));
+            if (body.get("role") != null)
+                u.setRole(body.get("role"));
+            return ResponseEntity.ok(userRepository.save(u));
+        }).orElse(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/users/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
+        userRepository.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 }
